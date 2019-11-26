@@ -22,8 +22,18 @@ torch.cat将这些切片得到的东西进行组合，并在维度1上进行拼�
 具体参见[xyz2rgb](https://blog.csdn.net/tian_110/article/details/45575869)
 返回数据格式也相同
 
-
-
+##### util.py        函数rgb2lab()
+```python
+	lab = xyz2lab(rgb2xyz(rgb))
+    l_rs = (lab[:,[0],:,:]-opt.l_cent)/opt.l_norm
+    ab_rs = lab[:,1:,:,:]/opt.ab_norm
+    out = torch.cat((l_rs,ab_rs),dim=1)
+    # if(torch.sum(torch.isnan(out))>0):
+        # print('rgb2lab')
+        # embed()
+    return out
+```
+分别取出L通道、AB通道后进行归一化处理，再通过torch.cat在维度1上进行连接，完成后返回连接后的tensor
 
 
 
