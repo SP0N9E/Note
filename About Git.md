@@ -20,5 +20,7 @@ $ git add readme.md
 // commit一下  添加评论
 $ git commit -a -m "initialize"
 // 然后sublime merge push上去（偷懒了
+$ git push origin master
+// git push [remote name][branch name]
 ```
 
